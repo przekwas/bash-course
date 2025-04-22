@@ -803,3 +803,29 @@ else
 fi
 ```
 - `&&` logically chains first succesful test into the second
+
+# Case Statements
+
+Alternate way to branch logical statements in a more elegant way in certain cases.  This is like the JS switch statement, it seems.
+
+`case` opens it, and `esac` is the ending word.
+
+```bash
+case "$number" in
+  [0-9]) 
+    echo "you have entered a single digit number";;
+  [0-9][0-9])
+    echo "you have entered a double digit number";;
+  [0-9][0-9][0-9])
+    echo "you have entered a triple digit number";;
+  *)
+    echo "you have entered a number with more than three digits";;
+esac
+```
+
+- remember the `$` symbol for your variables otherwise it won't work, and use `""` double quotes to make sure word splitting doesn't goof our code, either
+- this is just a globbing pattern
+- `in` starts the case statements
+- `[blah])` your glob pattern and the closing parentheses is for the commands to execute
+- `;;` ends the clause for a case
+- `*)` default case and clause
