@@ -745,3 +745,61 @@ File Test Operators compare files.
 - `-x` checks if file exists and has execute permissions
 - `-r` `-w` checks if file is readable, writeable, etc.
 
+# If Statements in Bash
+
+They are a type of compound commands (like using reserved words).  These reserved words are `if` and `fi` for if statements in bash.  They check the exit status of a command given to the check.
+
+```bash
+if [ test ]; then
+  command if passed
+fi
+```
+
+- `if` starts the statement and is a reserved word for bash to determine this a compound command
+- `[ test ]` is our test operator segment to see if the command inside results in a status `0` for true and `1` for false
+- `;` this tells our shell that we finished writing the condition commands and what follows are what we run to if it's true
+- `then` + a new line is the consequence commannds if the test passes, typically tabbed/indented in for readability but not required
+- `fi` ends the statement with this reserved word
+
+```bash
+if [ test ]; then
+  command if passed
+else
+  command if failed
+fi
+```
+
+- `else` runs alternate commands if the condition above it is not true aka a non-zero exit status
+
+```bash
+if [ test ]; then
+  command if passed
+elif [ test2 ]; then
+  command if 2nd passed
+else
+  command if failed
+fi
+```
+
+- `elif` allows us to check another condition if the first one fails
+
+Three Important Notes:
+- you cannot put an `elif` after an `else`
+- there is no limit to the amount of `elif` statements you can have
+- you can put `if` statements inside other `if` statements
+
+### Chaining Commands
+
+Chaining commands chain together multiple test constructs to create more powerful conditions/logic.  
+
+```bash
+a=$(cat file1.txt)
+b=$(cat file2.txt)
+c=$(cat file3.txt)
+if [ $a = $b ] && [ $a = $c ]; then
+    rm file2.txt file3.txt
+else
+    echo "Files do not match"
+fi
+```
+- `&&` logically chains first succesful test into the second
