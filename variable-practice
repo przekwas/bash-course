@@ -1,0 +1,6 @@
+#!/bin/bash
+
+student="sarah"
+
+echo "Hello ${student^}"
+exit 0

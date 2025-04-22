@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Author: Luke Przekwas
+# Date Created: 08/04/2025
+# Last Modified: 08/04/2025
+
+# Description
+# This script backs up all files in your home directory into a .tar archive
+
+# Usage
+# backup_script
+
+TIMESTAMP=$(date +%d-%m-%Y_%H-%M-%S)
+SOURCE_DIR="$HOME/source/bash-course"
+DEST_FILE="$HOME/source/bash-course-backup_${TIMESTAMP}.tar"
+currentDir=$(pwd)
+
+tar -cf "$DEST_FILE" --exclude="/home/luke/source/bash-course-backup*" "$SOURCE_DIR" 2>/dev/null
+
+echo "Hello ${USER^}"
+echo "I will now back up your project directory, $SOURCE_DIR"
+echo "Backup created at $DEST_FILE"
+exit 0

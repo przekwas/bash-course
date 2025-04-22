@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Author: Luke Przekwas
+# Date Created: 08/04/2025
+# Last Modified: 08/04/2025
+
+# Description
+# Prints "This is my first script" to the terminaal
+
+# Usage
+# our_first_script
+
+echo "This is my first script"
+exit 0
